@@ -1,6 +1,6 @@
-# Event Planning
+# Team Organizer
 
-#### Event Planning Cost Builder, Current Version: 03/24/2017
+#### Hack-a-thon team organizer, Current Version: 03/24/2017
 
 #### By Gloria Friesen
 
@@ -14,7 +14,6 @@ This Java web application allows the user to build a hack-a-thon team.
   * Switch to team-organizer directory
   * To run the program, use command $ gradle run
   * In your browser, go to localhost:4567
-  * Add teams and members
 
 ## Specifications
 
@@ -36,7 +35,7 @@ This Java web application allows the user to build a hack-a-thon team.
 |Application adds member object to list of members in team class|"Team TOT"|"Abby"|
 
 ## Known Bugs
-We'll see.
+None that I know of.
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
