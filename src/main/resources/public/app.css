@@ -19,3 +19,19 @@ body {
   font-size: 300%;
   padding: 20px;
 }
+
+.jumbotron {
+  background-color: #D9BB45;
+}
+
+.well {
+  background-color: #4563D9;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #D9BB45;
+}
