@@ -26,6 +26,7 @@ public class App {
     //add team success page
     post("/teams", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Team newTeam = new Team(request.queryParams("teamName"));
       model.put("template", "templates/success-team.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -33,6 +34,7 @@ public class App {
     //view all teams
     get("/teams", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("teams", Team.all());
       model.put("template", "templates/teams.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -40,6 +42,8 @@ public class App {
     //view individual team
     get("/teams/:teams_id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
+      model.put("team", team);
       model.put("template", "templates/team.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
