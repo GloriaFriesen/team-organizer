@@ -1,1 +1,1 @@
-web: ./build/install/teamorganizer/bin/teamorganizer
+web: ./build/install/team-organizer/bin/team-organizer
