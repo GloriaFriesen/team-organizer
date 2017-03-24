@@ -2,9 +2,12 @@
 <h1>Welcome to $team.getName()</h1>
 
 #if ($members)
+<h2>Members:</h2>
   #foreach ($member in $members)
     <h3><a href="/teams/$team.getId()/members/$member.getId()">$member.getName()</a></h3>
   #end
+#else
+  <p>No members yet.</p>
 #end
 
 <a href="/teams/$team.getId()/members/new"><button class="btn btn-success">Add Team Member</button></a>
