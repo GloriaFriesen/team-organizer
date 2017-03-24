@@ -1,4 +1,16 @@
 <!--index.vtl-->
 <h1>Hello</h1>
 
+
+
+#if ($teams)
+<h2>Current teams:</h2>
+  #foreach ($team in $teams)
+
+    <h4><a href="/teams/$team.getId()">$team.getName()</a></h4>
+  #end
+#else
+  <h4>Be the first to build your team.</h4>
+#end
+
 <a href="/teams/new"><button class="btn btn-info">Build Your Team</button></a>

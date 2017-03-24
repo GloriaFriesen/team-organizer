@@ -3,6 +3,8 @@ import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class App {
   public static void main(String[] args) {
@@ -12,6 +14,7 @@ public class App {
     //homepage
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("teams", request.session().attribute("teams"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -25,10 +28,16 @@ public class App {
 
     //add team success page
     post("/teams", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      Team newTeam = new Team(request.queryParams("teamName"));
-      model.put("template", "templates/success-team.vtl");
-      return new ModelAndView(model, layout);
+    Map<String, Object> model = new HashMap<String, Object>();
+    ArrayList<Team> teams = request.session().attribute("teams");
+    if (teams == null) {
+      teams = new ArrayList<Team>();
+      request.session().attribute("teams", teams);
+    }
+    Team newTeam = new Team(request.queryParams("teamName"));
+    teams.add(newTeam);
+    model.put("template", "templates/success-team.vtl");
+    return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     //view all teams
@@ -76,7 +85,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
       Member member = Member.find(Integer.parseInt(request.params(":member_id")));
-      team.addMember(member);
+      // team.addMember(member);
       model.put("member", member);
       model.put("team", team);
       model.put("template", "templates/member.vtl");
