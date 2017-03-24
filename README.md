@@ -28,7 +28,7 @@ This Java web application allows the user to build a hack-a-thon team.
 |Application finds instance of team class with the same ID|2|"A Team"|
 |Application instantiates Member class|member|true|
 |Application instantiates Member class with name|"Abby"|"Abby"|
-
+|Application returns all instance of Member class|"Abby", "Pepper Jack"|"Abby", "Pepper Jack"|
 
 ## Known Bugs
 We'll see.
