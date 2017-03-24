@@ -1,0 +1,21 @@
+.col-md-4 {
+  text-align: right;
+}
+
+#info-buttons {
+  border: 2px solid black;
+  padding: 30px;
+}
+
+#info-welcome {
+  border-bottom: 4px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+body {
+  font-family: 'Anonymous Pro', monospace;
+  background-color: #4563D9;
+  font-size: 300%;
+  padding: 20px;
+}
