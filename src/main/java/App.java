@@ -36,6 +36,7 @@ public class App {
     }
     Team newTeam = new Team(request.queryParams("teamName"));
     teams.add(newTeam);
+    model.put("team", newTeam);
     model.put("template", "templates/success-team.vtl");
     return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -53,7 +54,6 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
       model.put("members", request.session().attribute("members"));
-      // model.put("members", team.getMembers());
       model.put("team", team);
       model.put("template", "templates/team.vtl");
       return new ModelAndView(model, layout);
@@ -75,14 +75,6 @@ public class App {
       Member newMember = new Member(request.queryParams("memberName"), request.queryParams("memberSkill"));
       Team team = request.session().attribute("team");
       team.addMember(newMember);
-
-      ArrayList<Member> members = request.session().attribute("member");
-      if (members == null) {
-        members = new ArrayList<Member>();
-        request.session().attribute("members", members);
-      }
-      members.add(newMember);
-
       model.put("team", team);
       model.put("member", newMember);
       model.put("template", "templates/member-success.vtl");

@@ -5,6 +5,15 @@
 #info-buttons {
   border: 2px solid black;
   padding: 30px;
+  margin-top: 20px;
+}
+
+#location {
+  text-align: right;
+  border: 2px solid black;
+  padding: 30px;
+  padding-left: 50%;
+  margin-top: 20px;
 }
 
 #info-welcome, #member-info {
@@ -34,4 +43,10 @@ a {
 
 a:hover {
   color: #D9BB45;
+}
+
+#image {
+  height: 200px;
+  width: auto;
+  margin-bottom: 50px;
 }

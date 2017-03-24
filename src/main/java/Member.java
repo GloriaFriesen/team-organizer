@@ -37,4 +37,8 @@ public class Member {
   public static Member find(int id) {
     return instances.get(id - 1);
   }
+
+  public String getImage() {
+    return String.format("<img src='/images/%d.jpeg'>", getId());
+  }
 }

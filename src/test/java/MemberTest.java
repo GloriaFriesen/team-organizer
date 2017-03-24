@@ -53,4 +53,11 @@ public class MemberTest {
     Member secondMember = new Member("Pepper Jack", "dog");
     assertEquals(secondMember, Member.find(secondMember.getId()));
   }
+
+  @Test
+  public void getImage_returnsCorrectImageTag_String(){
+    Member myMember = new Member("Abby", "dog");
+    String imageTag = "<img src='/images/1.jpeg'>";
+    assertEquals(imageTag, myMember.getImage());
+  }
 }

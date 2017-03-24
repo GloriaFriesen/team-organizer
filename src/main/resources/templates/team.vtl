@@ -1,14 +1,14 @@
 <!--team.vtl-->
 <h1>Welcome to $team.getName()</h1>
 
-#if ($members)
+<!-- #if ($team.getMembers()) -->
 <h2>Members:</h2>
-  #foreach ($member in $members)
+  #foreach ($member in $team.getMembers())
     <h3><a href="/teams/$team.getId()/members/$member.getId()">$member.getName()</a></h3>
   #end
-#else
+<!-- #else
   <p>No members yet.</p>
-#end
+#end -->
 
 <a href="/teams/$team.getId()/members/new"><button class="btn btn-success">Add Team Member</button></a>
 <a href="/teams"><button class="btn btn-danger">View All Teams</button></a>
