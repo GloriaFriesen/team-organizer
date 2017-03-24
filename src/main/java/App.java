@@ -43,6 +43,7 @@ public class App {
     get("/teams/:teams_id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
+      model.put("members", team.getMembers());
       model.put("team", team);
       model.put("template", "templates/team.vtl");
       return new ModelAndView(model, layout);
@@ -51,13 +52,21 @@ public class App {
     //add member
     get("/teams/:teams_id/members/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
+      request.session().attribute("team", team);
+      model.put("team", team);
       model.put("template", "templates/member-form.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     //add member success page
-    get("/members", (request, response) -> {
+    post("/members", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Member newMember = new Member(request.queryParams("memberName"));
+      Team team = request.session().attribute("team");
+      team.addMember(newMember);
+      model.put("team", team);
+      model.put("member", newMember);
       model.put("template", "templates/member-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -65,6 +74,11 @@ public class App {
     //view member
     get("/teams/:teams_id/members/:member_id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      Team team = Team.find(Integer.parseInt(request.params(":teams_id")));
+      Member member = Member.find(Integer.parseInt(request.params(":member_id")));
+      team.addMember(member);
+      model.put("member", member);
+      model.put("team", team);
       model.put("template", "templates/member.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
