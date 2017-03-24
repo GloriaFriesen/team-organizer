@@ -3,6 +3,11 @@ import static org.junit.Assert.*;
 
 public class MemberTest {
 
+  @Before
+  public void tearDown() {
+    Member.clear();
+  }
+
   @Test
   public void Member_instantiatesCorrectly_true() {
     Member myMember = new Member("Abby");
@@ -28,5 +33,18 @@ public class MemberTest {
     Member myMember = new Member("Abby");
     Member.clear();
     assertEquals(0, Member.all().size());
+  }
+
+  @Test
+  public void getId_memberInstantiatesWithAnId_1() {
+    Member myMember = new Member("Abby");
+    assertEquals(1, myMember.getId());
+  }
+
+  @Test
+  public void find_returnsMemberWithSameId_secondMember() {
+    Member firstMember = new Member("Abby");
+    Member secondMember = new Member("Pepper Jack");
+    assertEquals(secondMember, Member.find(secondMember.getId()));
   }
 }
