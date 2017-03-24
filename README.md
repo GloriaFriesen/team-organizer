@@ -32,6 +32,8 @@ This Java web application allows the user to build a hack-a-thon team.
 |Application empties all members from list of member|"Abby"|0|
 |Application assigns an ID to each instance of member class|"Abby"|1|
 |Application finds instance of member class with the same ID|2|"Pepper Jack"|
+|Application creates empty list of members in team class|"Team TOT"|0|
+|Application adds member object to list of members in team class|"Team TOT"|"Abby"|
 
 ## Known Bugs
 We'll see.
