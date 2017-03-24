@@ -71,7 +71,7 @@ public class App {
     //add member success page
     post("/members", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Member newMember = new Member(request.queryParams("memberName"));
+      Member newMember = new Member(request.queryParams("memberName"), request.queryParams("memberSkill"));
       Team team = request.session().attribute("team");
       team.addMember(newMember);
       model.put("team", team);

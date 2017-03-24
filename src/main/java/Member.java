@@ -3,17 +3,23 @@ import java.util.ArrayList;
 
 public class Member {
   private String mName;
+  private String mSkill;
   private static List<Member> instances = new ArrayList<Member>();
   private int mId;
 
-  public Member(String name) {
+  public Member(String name, String skill) {
     mName = name;
+    mSkill = skill;
     instances.add(this);
     mId = instances.size();
   }
 
   public String getName() {
     return mName;
+  }
+
+  public String getSkill() {
+    return mSkill;
   }
 
   public static List<Member> all() {
