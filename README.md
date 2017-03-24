@@ -21,6 +21,7 @@ This Java web application allows the user to build a hack-a-thon team.
 |Behavior|Input|Output|
 |:---:|:---:|:---:|
 |Application instantiates Team class|team|true|
+|Application instantiates Team class with name|"Team TOT"|"Team Tot"|
 
 
 ## Known Bugs
