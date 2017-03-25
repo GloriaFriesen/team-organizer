@@ -14,6 +14,8 @@ This Java web application allows the user to build a hack-a-thon team.
   * Switch to team-organizer directory
   * To run the program, use command $ gradle run
   * In your browser, go to localhost:4567
+###### OR
+  * _Go directly to my Heroku app in your web browser: <https://guarded-coast-31122.herokuapp.com/>_
 
 ## Specifications
 
